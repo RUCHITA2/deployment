@@ -6,6 +6,14 @@ pipeline {
         DOCKER_HUB_REPO = 'patilruchita/settlemint1'
     }
 
+  stages{
+   	 stage('Checkout'){
+   	 	steps{
+   	 	  checkout main           
+        }
+    }
+
+
     stages {
         stage('Build') {
             steps {
@@ -25,9 +33,10 @@ pipeline {
             steps {
                 echo 'Building Docker image'
                 // Add your Docker build steps here
-                script {
-                    docker.build(env.DOCKER_HUB_REPO)
-                }
+                docker.withRegistry(https://registry.hub.docker.com, 'Dockerhub') {
+                        dockerImage = docker.build(patilruchita/settlemint1)
+                    }
+
             }
         }
 
@@ -37,7 +46,7 @@ pipeline {
                 // Add your Docker push steps here
                 script {
                     docker.withRegistry('https://registry.hub.docker.com', 'Dockerhub') {
-                        docker.image(env.DOCKER_HUB_REPO).push()
+                        docker.image(patilruchita/settlemint1).push()
                     }
                 }
             }
