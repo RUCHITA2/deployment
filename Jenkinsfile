@@ -26,7 +26,7 @@ pipeline {
                 echo 'Building Docker image'
                 // Add your Docker build steps here
                 script {
-                    docker.build(env.patilruchita/settlemint1)
+                    docker.build(env.DOCKER_HUB_REPO)
                 }
             }
         }
@@ -36,8 +36,8 @@ pipeline {
                 echo 'Pushing Docker image to Docker Hub'
                 // Add your Docker push steps here
                 script {
-                    docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
-                        docker.image(env.patilruchita/settlemint1).push()
+                    docker.withRegistry('https://registry.hub.docker.com', 'Dockerhub') {
+                        docker.image(env.DOCKER_HUB_REPO).push()
                     }
                 }
             }
