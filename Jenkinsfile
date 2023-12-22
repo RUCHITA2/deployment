@@ -12,6 +12,7 @@ pipeline {
    	 	  checkout main           
         }
     }
+  }
 
 
     stages {
