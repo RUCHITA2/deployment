@@ -12,17 +12,15 @@ pipeline {
    	 	  checkout main           
         }
     }
-  }
+  
 
 
-    stages {
         stage('Build') {
             steps {
                 echo 'Building the project'
                 // Add your build steps here
             }
         }
-    }
 
         stage('Test') {
             steps {
@@ -54,3 +52,4 @@ pipeline {
             }
         }
     }
+}
