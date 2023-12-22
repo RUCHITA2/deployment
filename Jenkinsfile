@@ -35,7 +35,7 @@ pipeline {
                 // Add your Docker build steps here
               script {
                 docker.withRegistry('https://registry.hub.docker.com', 'Dockerhub') {
-                        dockerImage = docker.build('patilruchita/settlemint1')   
+                        dockerImage = docker.build(${DOCKER_HUB_REPO}","-f ${env.WORKSPACE}"')   
                 }
 
             }
