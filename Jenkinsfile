@@ -3,7 +3,7 @@ pipeline{
 agent any
 
   environment{
-    registry = "patilruchita/settlemint1"
+    registry = "patilruchita/deployment"
     registryCredential = 'patilruchita'
     dockerImage = ''
     
@@ -15,11 +15,8 @@ agent any
    	 	  checkout scm           
         }
     }
-
-      }
-      }
-     
     }
+    
             stage('Building image') {
            steps{
             
