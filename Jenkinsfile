@@ -17,17 +17,15 @@ agent any
     }
     }
     
-            stage('Building image') {
-           steps{
-            
-           script {
-            dockerImage = docker.build registry + ":$BUILD_NUMBER"
-            
+     stage('Building image') {
+        steps{  
+          script {
+            dockerImage = docker.build registry + ":$BUILD_NUMBER"            
         }
       }
     }
     
-    stage('Push Image To Docker Hub') {
+     stage('Push Image To Docker Hub') {
       steps{
         script {
           docker.withRegistry( '', registryCredential ) {
