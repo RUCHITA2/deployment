@@ -35,7 +35,7 @@ pipeline {
                 // Add your Docker build steps here
               script {
                 docker.withRegistry('https://registry.hub.docker.com', 'Dockerhub') {
-                        dockerImage = docker.build(patilruchita/settlemint1)   
+                        dockerImage = docker.build('patilruchita/settlemint1')   
                 }
 
             }
@@ -48,7 +48,7 @@ pipeline {
                 // Add your Docker push steps here
                 script {
                     docker.withRegistry('https://registry.hub.docker.com', 'Dockerhub') {
-                        docker.image(patilruchita/settlemint1).push()
+                        docker.image('patilruchita/settlemint1').push()
                     }
                 }
             }
