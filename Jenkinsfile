@@ -21,6 +21,7 @@ pipeline {
                 // Add your build steps here
             }
         }
+    }
 
         stage('Test') {
             steps {
