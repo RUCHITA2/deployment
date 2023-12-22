@@ -34,11 +34,11 @@ pipeline {
                 echo 'Building Docker image'
                 // Add your Docker build steps here
                 docker.withRegistry(https://registry.hub.docker.com, 'Dockerhub') {
-                        dockerImage = docker.build(patilruchita/settlemint1)
-                    }
+                        dockerImage = docker.build(patilruchita/settlemint1)                  
 
             }
         }
+                                    }
 
         stage('Push Image To Docker Hub') {
             steps {
