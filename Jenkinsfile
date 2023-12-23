@@ -61,26 +61,25 @@ pipeline {
      stage('Build and Package Helm Charts') {
             steps {
                 script {
-                  withCredentials([file(credentialsId: 'minikube', variable: 'KUBECONFIG_CRED')]){
+                
                   sh "kubectl config use-context minikube --kubeconfig=${KUBECONFIG_CRED}"
                     sh 'helm package helm'
                   sh "helm upgrade --install settlemint-service helm --set image.repository=registry.hub.docker.com/patilruchita/settlemint1:latest"
-                  }
+                
                 }
             }
         }
 
 
-    //helm/settlemint-service/templates/deployment.yaml
 
     stage('Deploy to Minikube') {
             steps {
                 script {
-                  withCredentials([file(credentialsId: 'minikube', variable: 'KUBECONFIG_CRED')]){
+                
                   sh "kubectl config use-context minikube --kubeconfig=${KUBECONFIG_CRED}"
                     // You may need to install kubectl and configure it here
                     sh 'kubectl apply -f helm/templates/deployment.yaml'
-                  }
+                
                 }
             }
         }
