@@ -60,8 +60,8 @@ pipeline {
      stage('Build and Package Helm Charts') {
             steps {
                 script {
-                    sh 'helm package helm/settlemint-service'
-                  sh "helm upgrade --install settlemint-service helm/settlemint-service --set image.repository=registry.hub.docker.com/patilruchita/settlemint1:latest"
+                    sh 'helm package helm/Charts.yaml'
+                  sh "helm upgrade --install settlemint-service helm/ --set image.repository=registry.hub.docker.com/patilruchita/settlemint1:latest"
                 }
             }
         }
@@ -73,7 +73,7 @@ pipeline {
             steps {
                 script {
                     // You may need to install kubectl and configure it here
-                    sh 'kubectl apply -f helm/settlemint-service/templates/deployment.yaml'
+                    sh 'kubectl apply -f helm/templates/deployment.yaml'
                 }
             }
         }
