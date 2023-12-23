@@ -14,7 +14,7 @@ RUN npm ci
 COPY ./apps/nft-bridge .
 
 # Build the application if necessary
-RUN npm run build
+#RUN npm run build
 
 COPY --from=builder /usr/src/app/dist ./dist
 
