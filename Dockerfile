@@ -1,23 +1,23 @@
-# Use the official Node.js image with slim tag as the base image
+
 FROM node:slim
 
 # Set the working directory in the container
 WORKDIR /usr/src/app
 
-# Copy the package.json and package-lock.json files
+# Copy the package.json and package-lock.json (or yarn.lock) files
 COPY package.json package-lock.json ./
 
-# Install dependencies using npm
-RUN npm install
+# Install any needed packages
+RUN npm ci
 
 # Copy the rest of your application's source code
 COPY ./apps/nft-bridge .
 
-
-RUN npm run build
+# Build the application if necessary
+# RUN npm run build
 
 # Your application's default port
 EXPOSE 6969
 
 # Run the app
-CMD ["node", "./dist/apps/nft-bridge/src/main.ts"]
+CMD ["node", "./dist/apps/nft-bridge/main.ts"]
