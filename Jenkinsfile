@@ -1,6 +1,12 @@
 pipeline {
     agent any
 
+  
+    tools {
+        // Define Docker tool
+        dockerTool 'Docker'
+    }
+
     environment {
         // Define environment variables if needed
         DOCKER_HUB_REPO = 'patilruchita/settlemint1'
