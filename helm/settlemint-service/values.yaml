@@ -1,0 +1,19 @@
+
+
+replicaCount: 1
+name: settlemint-service
+namespace: settlemint
+
+
+
+image:
+  repository: 495364019757.dkr.ecr.ap-south-1.amazonaws.com/uat/tarento/announcement-service:16
+  pullPolicy: IfNotPresent
+  tag: ""
+  
+container:
+  containerPort: 8099
+
+
+ports:
+targetPort:  8099
