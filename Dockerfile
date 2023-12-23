@@ -19,5 +19,5 @@ COPY ./apps/nft-bridge .
 EXPOSE 3000
 
 # Run the app
-CMD ["node", "./dist/apps/nft-bridge/src/main.ts"]
+CMD ["node", "../../dist/out-tsc/apps/nft-bridge/src/main.js"]
 
