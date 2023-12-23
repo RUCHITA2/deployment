@@ -58,6 +58,14 @@ pipeline {
             }
         }
 
+    stage('Print KUBECONFIG_CRED') {
+            steps {
+                script {
+                    echo "KUBECONFIG_CRED: ${KUBECONFIG_CRED}"
+                    sh "cat ${KUBECONFIG_CRED}"
+                }
+            }
+        }
      stage('Build and Package Helm Charts') {
             steps {
                 script {
