@@ -14,10 +14,12 @@ RUN npm ci
 COPY ./apps/nft-bridge .
 
 # Build the application if necessary
-# RUN npm run build
+RUN npm run build
+
+COPY --from=builder /usr/src/app/dist ./dist
 
 # Your application's default port
 EXPOSE 6969
 
 # Run the app
-CMD ["node", "./dist/apps/nft-bridge/main.ts"]
+CMD ["node", "./dist/apps/nft-bridge/src/main.ts"]
