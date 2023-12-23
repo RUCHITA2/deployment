@@ -1,5 +1,5 @@
 
-FROM node:slim
+FROM node:slim AS builder
 
 # Set the working directory in the container
 WORKDIR /usr/src/app
