@@ -6,6 +6,11 @@ pipeline {
         DOCKER_HUB_REPO = 'patilruchita/settlemint1'
     }
 
+     tools {
+        // Define Docker tool
+        dockerTool 'Docker'
+    }
+
   stages{
    	 stage('Checkout'){
    	 	steps{
