@@ -58,38 +58,7 @@ pipeline {
             }
         }
 
-    stage('Print KUBECONFIG_CRED') {
-            steps {
-                script {
-                    echo "KUBECONFIG_CRED: ${KUBECONFIG_CRED}"
-                    sh "cat ${KUBECONFIG_CRED}"
-                }
-            }
-        }
-     stage('Build and Package Helm Charts') {
-            steps {
-                script {
-                
-                
-                    sh 'helm package helm'
-                  sh "helm upgrade --install settlemint-service helm --set image.repository=registry.hub.docker.com/patilruchita/settlemint1:latest"
-                
-                }
-            }
-        }
 
-
-
-    stage('Deploy to Minikube') {
-            steps {
-                script {
-                
-                    // You may need to install kubectl and configure it here
-                    sh 'kubectl apply -f helm/templates/deployment.yaml'
-                
-                }
-            }
-        }
 
     }
 }
