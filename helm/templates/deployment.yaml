@@ -4,7 +4,7 @@ metadata:
   name: settlemint-service-helm
   namespace: settlemint
 spec:
-  replicas: {{ Values.replicaCount }}
+  replicas: {{ values.replicaCount }}
   selector:
     matchLabels:
       app: settlemint-service-helm
@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: settlemint-service-helm
-          image: {{ Values.image.repository }}
+          image: {{ values.image.repository }}
           ports:
             - containerPort: 3000
           envFrom:
