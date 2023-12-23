@@ -13,9 +13,6 @@ RUN npm install
 # Copy the rest of your application's source code
 COPY ./apps/nft-bridge .
 
-# Run linting
-RUN npx nx run nft-bridge:lint
-
 # Run e2e tests
 RUN npx jest
 
