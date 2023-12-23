@@ -60,7 +60,7 @@ pipeline {
      stage('Build and Package Helm Charts') {
             steps {
                 script {
-                    sh 'helm package ./path/to/your/chart'
+                    sh 'helm package ./helm/settlemint-service'
                   sh "helm upgrade --install settlemint-service helm/settlemint-service --set image.repository=${imagename}:$BUILD_NUMBER"
                 }
             }
