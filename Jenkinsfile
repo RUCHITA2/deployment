@@ -60,7 +60,7 @@ pipeline {
      stage('Build and Package Helm Charts') {
             steps {
                 script {
-                    sh 'helm package helm/Chart.yaml'
+                    sh 'helm package helm'
                   sh "helm upgrade --install settlemint-service helm/ --set image.repository=registry.hub.docker.com/patilruchita/settlemint1:latest"
                 }
             }
