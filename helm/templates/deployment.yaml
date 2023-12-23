@@ -38,4 +38,4 @@ spec:
             initialDelaySeconds: 30
             periodSeconds: 10
       imagePullSecrets:
-        - name: registry.hub.docker.com/patilruchita/settlemint1:latest
+        - name: ruchita
