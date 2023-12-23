@@ -32,16 +32,6 @@ pipeline {
             }
         }
 
-
-            stage('Build and Package Helm Charts') {
-            steps {
-                script {
-                    sh 'helm package ./path/to/your/chart'
-                  sh "helm upgrade --install settlemint-service helm/settlemint-service --set image.repository=${imagename}:$BUILD_NUMBER"
-                }
-            }
-        }
-
         stage('Build Docker Image') {
             steps {
                 echo 'Building Docker image'
@@ -66,5 +56,27 @@ pipeline {
                 }
             }
         }
+
+     stage('Build and Package Helm Charts') {
+            steps {
+                script {
+                    sh 'helm package ./path/to/your/chart'
+                  sh "helm upgrade --install settlemint-service helm/settlemint-service --set image.repository=${imagename}:$BUILD_NUMBER"
+                }
+            }
+        }
+
+
+    //helm/settlemint-service/templates/deployment.yaml
+
+    stage('Deploy to Minikube') {
+            steps {
+                script {
+                    // You may need to install kubectl and configure it here
+                    sh 'kubectl apply -f ./helm/settlemint-service/templates/deployment.yaml'
+                }
+            }
+        }
+
     }
 }
