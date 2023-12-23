@@ -4,7 +4,10 @@ pipeline {
     environment {
         // Define environment variables if needed
         DOCKER_HUB_REPO = 'patilruchita/settlemint1'
+        PATH = "$PATH:/usr/bin/docker"
     }
+
+  
 
   stages{
    	 stage('Checkout'){
