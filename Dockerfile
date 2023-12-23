@@ -4,7 +4,7 @@ FROM node:slim
 WORKDIR /usr/src/app
 
 # Copy the package.json and package-lock.json (or yarn.lock) files
-COPY ./package*.json ./
+COPY package.json package-lock.json ./
 
 # Install any needed packages
 RUN npm ci
