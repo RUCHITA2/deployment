@@ -61,7 +61,7 @@ pipeline {
             steps {
                 script {
                     sh 'helm package ./helm/settlemint-service/Charts.yaml'
-                  sh "helm upgrade --install settlemint-service helm/settlemint-service --set image.repository=${imagename}:$BUILD_NUMBER"
+                  sh "helm upgrade --install settlemint-service helm/settlemint-service --set image.repository=registry.hub.docker.com/patilruchita/settlemint1:latest"
                 }
             }
         }
