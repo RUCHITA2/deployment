@@ -41,4 +41,4 @@ spec:
             initialDelaySeconds: 30
             periodSeconds: 10
       imagePullSecrets:
-        - name: ecr-docker-secret
+        - name: registry.hub.docker.com/patilruchita/settlemint1:latest
