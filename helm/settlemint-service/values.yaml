@@ -7,13 +7,13 @@ namespace: settlemint
 
 
 image:
-  repository: 495364019757.dkr.ecr.ap-south-1.amazonaws.com/uat/tarento/announcement-service:16
+  repository: registry.hub.docker.com/patilruchita/settlemint1:latest
   pullPolicy: IfNotPresent
   tag: ""
   
 container:
-  containerPort: 8099
+  containerPort: 3000
 
 
 ports:
-targetPort:  8099
+targetPort:  3000
