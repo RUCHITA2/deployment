@@ -5,7 +5,7 @@ pipeline {
     environment {
         // Define environment variables if needed
         DOCKER_HUB_REPO = 'patilruchita/settlemint1'
-        KUBECONFIG_CRED = credentials('Kubernetes')
+        KUBECONFIG_CRED = credentials('Kubernates')
     }
 
   
