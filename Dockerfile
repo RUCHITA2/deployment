@@ -14,7 +14,7 @@ RUN npm install
 COPY . .
 
 # Build the project
-RUN nx build nft-bridge
+RUN npm nx build nft-bridge
 
 # Expose the port that the application will run on
 EXPOSE 3000
