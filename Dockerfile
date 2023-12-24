@@ -1,5 +1,5 @@
 
-FROM node:slim AS builder
+FROM node:slim 
 
 # Set the working directory in the container
 WORKDIR /usr/src/app
@@ -15,8 +15,6 @@ COPY ./apps/nft-bridge .
 
 # Build the application if necessary
 #RUN npm run build
-
-COPY --from=builder /usr/src/app/dist ./dist
 
 # Your application's default port
 EXPOSE 6969
