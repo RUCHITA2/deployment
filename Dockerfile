@@ -1,23 +1,23 @@
+# Use Node.js version 20 as the base image
+FROM node:20
 
-FROM node:slim 
-
-# Set the working directory in the container
+# Set the working directory inside the container
 WORKDIR /usr/src/app
 
-# Copy the package.json and package-lock.json (or yarn.lock) files
-COPY package.json package-lock.json ./
+# Copy package.json and package-lock.json to the working directory
+COPY package*.json ./
 
-# Install any needed packages
+# Install application dependencies
 RUN npm install
 
-# Copy the rest of your application's source code
-COPY ./apps/nft-bridge .
+# Copy the application code to the container
+COPY . .
 
-# Build the application if necessary
-#RUN npm run build
+# Build the project
+RUN nx build nft-bridge
 
-# Your application's default port
-EXPOSE 6969
+# Expose the port that the application will run on
+EXPOSE 3000
 
-# Run the app
+# Command to run the application
 CMD ["node", "./dist/apps/nft-bridge/main.js"]
