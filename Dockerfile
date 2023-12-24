@@ -14,7 +14,7 @@ RUN npm install
 COPY ./apps/nft-bridge .
 
 # Build the application if necessary
-RUN npm run build
+#RUN npm run build
 
 # Your application's default port
 EXPOSE 6969
