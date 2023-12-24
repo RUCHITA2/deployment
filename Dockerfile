@@ -8,7 +8,7 @@ WORKDIR /usr/src/app
 COPY package.json package-lock.json ./
 
 # Install any needed packages
-RUN npm ci
+RUN npm install
 
 # Copy the rest of your application's source code
 COPY ./apps/nft-bridge .
